@@ -1,7 +1,7 @@
 import flask
 
 
-def hello_name(request):
+def buy(request):
     """HTTP Cloud Function.
     Args:
         request (flask.Request): The request object.
@@ -13,8 +13,11 @@ def hello_name(request):
     """
     request_args = request.args
 
-    if request_args and "name" in request_args:
-        name = request_args["name"]
+    if request_args and "nft" in request_args and "buyer" in request_args:
+        nft = request_args["nft"]
+        buyer = request_args["buyer"]
     else:
-        name = "World"
-    return "Hello {}!".format(flask.escape(name))
+        nft = "666"
+        buyer = "Rui"
+        
+    return "Buy NFT {} for {}".format(flask.escape(nft), flask.escape(buyer))
