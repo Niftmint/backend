@@ -76,7 +76,20 @@ def set_access_token(request):
 
     return jsonify(exchange_response)
 
-def info():
+def info(request):
+    # set CORS headers for preflight request
+    if request.method == 'OPTIONS':
+        # allows GET requests from any origin with the Content-Type
+        headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Max-Age': '3600'
+        }
+        return ('', 204, headers)
+    # set CORS headers for the main request
+    headers = { 'Access-Control-Allow-Origin': '*' }
+    
     global access_token
     global item_id
     return jsonify({
