@@ -4,10 +4,8 @@ from flask import request
 from flask import jsonify
 from flask import make_response
 
-app = Flask(__name__)
-
 # CONFIGURATION SETTINGS
-PLAID_REDIRECT_URI='http://localhost:3000/'
+PLAID_REDIRECT_URI='https://us-central1-niftmint.cloudfunctions.net/'
 PLAID_CLIENT_ID='6069040283c0da001182aece'
 PLAID_SECRET='3be943a36853176b520a107a88316b'
 PLAID_ENV='sandbox'
