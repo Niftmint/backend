@@ -29,6 +29,18 @@ def format_error(e):
         }
 
 def create_link_token(request):
+    if request.method == 'OPTIONS':
+        # allows GET requests from any origin with the Content-Type
+        headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Max-Age': '3600'
+        }
+        return ('', 204, headers)
+    # set CORS headers for the main request
+    headers = { 'Access-Control-Allow-Origin': '*' }
+    
     # UPDATE
     client_user_id = 'user-id'
 
@@ -57,6 +69,18 @@ def create_link_token(request):
 # an API access_token
 # https://plaid.com/docs/#exchange-token-flow
 def set_access_token(request):
+    if request.method == 'OPTIONS':
+        # allows GET requests from any origin with the Content-Type
+        headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Max-Age': '3600'
+        }
+        return ('', 204, headers)
+    # set CORS headers for the main request
+    headers = { 'Access-Control-Allow-Origin': '*' }
+    
     global access_token
     global item_id
     public_token = None
