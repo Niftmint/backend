@@ -1,2 +1,3 @@
-# backend-GCD
-backend service for GCD
+# backend
+
+backend service for GCD written in Python
