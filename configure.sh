@@ -29,3 +29,5 @@ echo
 gcloud functions deploy balance --runtime python39 --trigger-http --allow-unauthenticated || \
     error_exit "Error deploying function: balance"
 echo
+echo done
+echo
